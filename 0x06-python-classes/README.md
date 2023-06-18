@@ -1,73 +1,131 @@
-# Python - Classes and Objects
+/* AUTHOR : HAMBISA ADAMU 
+**/
 
-![alt text](https://s3.amazonaws.com/intranet-projects-files/holbertonschool-higher-level_programming+/247/oop-meme.jpg)
 
-In this project, I began practicing object-oriented programming using classes and objects in Python. I learned about attributes, methods, and properties as well as data abstraction, data encapsulation, and information hiding.
+Tasks
+0. My first square
+mandatory
+Write an empty class Square that defines a square:
 
-## Tests :heavy_check_mark:
+You are not allowed to import any module
+guillaume@ubuntu:~/0x06$ cat 0-main.py
+#!/usr/bin/python3
+Square = __import__('0-square').Square
 
-* [tests](./tests): Folder of test files. Provided by Holberton School.
+my_square = Square()
+print(type(my_square))
+print(my_square.__dict__)
 
-## Tasks :page_with_curl:
+guillaume@ubuntu:~/0x06$ ./0-main.py
+<class '0-square.Square'>
+{}
+guillaume@ubuntu:~/0x06$ 
+Repo:
 
-* **0. My first square**
-  * [0-square.py](./0-square.py): Python class `Square` that defines a square.
+GitHub repository: alx-higher_level_programming
+Directory: 0x06-python-classes
+File: 0-square.py
+  
+1. Square with size
+mandatory
+Write a class Square that defines a square by: (based on 0-square.py)
 
-* **1. Square with size**
-  * [1-square.py](./1-square.py): Python class `Square` that defines a square. Builds on  [0-square.py](./0-square.py) with:
-    * Private instance attribute `size`.
-    * Instantiation with `size`.
+Private instance attribute: size
+Instantiation with size (no type/value verification)
+You are not allowed to import any module
+Why?
 
-* **2. Size validation**
-  * [2-square.py](./2-square.py): Python class `Square` that defines a square. Builds on [1-square.py](./1-square.py) with:
-    * Instantiation with optional `size`: `def __init__(self, size=0):`
-  * If a provided `size` attribute is not an integer, a `TypeError` exception is raised with the message `must be an integer`.
-  * If a provided `size` attribute is less than `0`, a `ValueError` exception is raised with the message `size must be >= 0`.
+Why size is private attribute?
 
-* **3. Area of a square**
-  * [3-square.py](./3-square.py): Python class `Square` that defines a square. Builds on [2-square.py](./2-square.py) with:
-    * Public instance attribute `def area(self):` that returns the current square area.
+The size of a square is crucial for a square, many things depend of it (area computation, etc.), so you, as class builder, must control the type and value of this attribute. One way to have the control is to keep it privately. You will see in next tasks how to get, update and validate the size value.
 
-* **4. Access and update private attribute**
-  * [4-square.py](./4-square.py): Python class `Square` that defines a square. Builds on [3-square.py](./3-square.py) with:
-    * Property `def size(self):` to retrieve the private instance  attribute `self`.
-    * Property setter `def size(self, value):` to set `self`.
+guillaume@ubuntu:~/0x06$ cat 1-main.py
+#!/usr/bin/python3
+Square = __import__('1-square').Square
 
-* **5. Printing a square**
-  * [5-square.py](./5-square.py): Python class `Square` that defines a square. Builds on [4-square.py](./4-square.py) with:
-    * Public instance method `def my_print(self):` that prints the square with the character `#` to standard output (if `size` == 0 -> prints an empty line).
+my_square = Square(3)
+print(type(my_square))
+print(my_square.__dict__)
 
-* **6. Coordinates of a square**
-  * [6-square.py](./6-square.py): Python class `Square` that defines a square. Builds on [5-square.py](./5-square.py) with:
-    * Private instance attribute `position`.
-    * Property `def position(self):` to retreive `position`.
-    * Property setter `def position(self, value):` to set `position`.
-    * Instantiation with optional `size` and `position`:  `def __init__(self, size=0, position=(0, 0)):`
-  * If a provided `position` attribute is not a tuple of two integers, a `TypeError` exception is raised with the message `position must be a tuple of 2 positive integers`.
+try:
+    print(my_square.size)
+except Exception as e:
+    print(e)
 
-* **7. Singly linked list**
-  * [100-singly_linked_list.py](./100-singly_linked_list.py): Python classes `Node` and `SinglyLinkedList` that define a node of a singly-linked list and a singly-linked list. The class `Node` is defined with:
-    * Private instance attribute `data`.
-    * Property `def data(self):` to set `data`.
-    * Property setter `def data(self, value):` to set `data`.
-    * Private instance attribute `next_node`.
-    * Property `def next_node(self):` to set `next_node`.
-    * Property `def next_node(self, value):` to set `next_node`.
-    * Instantiation with `data` and `next_node`:  `def __init__(self, data, next_node=None):`
-  * If a provided `data` attribute is not an integer, a `TypeError` exception is raised with the message `data must be an integer`.
-  * If a provided `next_node` attribute is not a `Node` or `None`, a `TypeError` exception is raised with the message `next_node must be a Node object`.
-  * The class `SinglyLinkedList` is defined with:
-    * Private instance attribute `head`.
-    * Instantiation `def __init__(self):`
-    * Public instance method `def sorted_insert(self, value):` that inserts a new `Node` into the correct sorted position in the list increasing order).
+try:
+    print(my_square.__size)
+except Exception as e:
+    print(e)
 
-* **8. Print Square instance**
-  * [101-square.py](./101-square.py): Python class `Square` that defines a square. Builds on [6-square.py](./6-square.py) with:
-    * Method `__str__` to set printing of a `Square` instance equivalent to  `my_print()`.
+guillaume@ubuntu:~/0x06$ ./1-main.py
+<class '1-square.Square'>
+{'_Square__size': 3}
+'Square' object has no attribute 'size'
+'Square' object has no attribute '__size'
+guillaume@ubuntu:~/0x06$ 
+Repo:
 
-* **9. Compare 2 squares**
-  * [102-square.py](./102-square.py): Python class `Square` that defines a square. Builds on [101-square.py](./101-square.py) with:
-    * Methods `__eq__`, `__ne__`, `__lt__`, `__le__`, `__gt__`, and `__ge__`, to enable usage of `Square` instances with logical operators `==`, `!=`, `<`, `<=`, `>`, and `>=`, respectively, based on the square area.
+GitHub repository: alx-higher_level_programming
+Directory: 0x06-python-classes
+File: 1-square.py
+  
+2. Size validation
+mandatory
+Write a class Square that defines a square by: (based on 1-square.py)
 
-* **10. ByteCode -> Python #5**
-  * [103-magic_class.py](./103-magic_class.py): Python function matching exactly a bytecode provided.
+Private instance attribute: size
+Instantiation with optional size: def __init__(self, size=0):
+size must be an integer, otherwise raise a TypeError exception with the message size must be an integer
+if size is less than 0, raise a ValueError exception with the message size must be >= 0
+You are not allowed to import any module
+guillaume@ubuntu:~/0x06$ cat 2-main.py
+#!/usr/bin/python3
+Square = __import__('2-square').Square
+
+my_square_1 = Square(3)
+print(type(my_square_1))
+print(my_square_1.__dict__)
+
+my_square_2 = Square()
+print(type(my_square_2))
+print(my_square_2.__dict__)
+
+try:
+    print(my_square_1.size)
+except Exception as e:
+    print(e)
+
+try:
+    print(my_square_1.__size)
+except Exception as e:
+    print(e)
+
+try:
+    my_square_3 = Square("3")
+    print(type(my_square_3))
+    print(my_square_3.__dict__)
+except Exception as e:
+    print(e)
+
+try:
+    my_square_4 = Square(-89)
+    print(type(my_square_4))
+    print(my_square_4.__dict__)
+except Exception as e:
+    print(e)
+
+guillaume@ubuntu:~/0x06$ ./2-main.py
+<class '2-square.Square'>
+{'_Square__size': 3}
+<class '2-square.Square'>
+{'_Square__size': 0}
+'Square' object has no attribute 'size'
+'Square' object has no attribute '__size'
+size must be an integer
+size must be >= 0
+guillaume@ubuntu:~/0x06$ 
+Repo:
+
+GitHub repository: alx-higher_level_programming
+Directory: 0x06-python-classes
+File: 2-square.py
