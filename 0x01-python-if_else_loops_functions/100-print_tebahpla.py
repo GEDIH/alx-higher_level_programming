@@ -1,3 +1,9 @@
 #!/usr/bin/python3
-for b in range(ord('z'), ord('a') - 1, -2):
-    print("{:c}{:s}".format(b, chr(b - 33)), end="")
+# Range for Lowercase alphabet in reverse
+for i in range(122, 96, -1):
+    # We use this condition for search every number and print it
+    if i % 2 == 0:
+        print("{:c}".format(i), end="")
+    else:
+        # We print the left letters in uppercase
+        print("{:c}".format(i - 32), end="")
