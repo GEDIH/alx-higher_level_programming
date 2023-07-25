@@ -82,59 +82,13 @@ Attack of the Clones
 ```
 [100-starwars_characters.js](100-starwars_characters.js)
 ```
-0x14-javascript-web_scraping:$ ./100-starwars_characters.js 3
-Darth Vader
-R2-D2
-Luke Skywalker
-Han Solo
-Leia Organa
-Chewbacca
-Palpatine
-Obi-Wan Kenobi
-Jabba Desilijic Tiure
-Wedge Antilles
-Yoda
-Boba Fett
-Ackbar
-Arvel Crynyd
-Mon Mothma
-Nien Nunb
-Wicket Systri Warrick
-Bib Fortuna
-C-3PO
-Lando Calrissian
+
 0x14-javascript-web_scraping:$ 
 ```
 [101-starwars_characters.js](101-starwars_characters.js)
 ```
 0x14-javascript-web_scraping:$ ./101-starwars_characters.js 3
 Luke Skywalker
-C-3PO
-R2-D2
-Darth Vader
-Leia Organa
-Obi-Wan Kenobi
-Chewbacca
-Han Solo
-Jabba Desilijic Tiure
-Wedge Antilles
-Yoda
-Palpatine
-Boba Fett
-Lando Calrissian
-Ackbar
-Mon Mothma
-Arvel Crynyd
-Wicket Systri Warrick
-Nien Nunb
-Bib Fortuna
+
 0x14-javascript-web_scraping:$ 
 ```
-### Author
-- [Joseph Mahiuha](https://github.com/Mahiuha)
-### Acknowledgments
-- [ALX](https://www.alxafrica.com/)
-- [JSONPlaceholder](https://jsonplaceholder.typicode.com/)
-- [Loripsum API](http://loripsum.net/api)
-- [Star Wars API](https://swapi.co/)
-- [Twitter API](https://developer.twitter.com/en/docs)
